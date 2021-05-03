@@ -1,6 +1,7 @@
 #!/bin/bash
 
 COMPONENT=$1
+
 export LOG=/tmp/"$(COMPONENT)".log
 rm -rf "$(LOG)"
 
@@ -12,7 +13,7 @@ if [ ! -f components/"${COMPONENT}".sh ]; then
 
 fi
 
-USER_NAME=${whoami}
+USER_NAME=$(whoami)
 
 if [ "${USER_NAME}" != "root" ]; then
   ERROR "You should be a root user to execute these scripts"

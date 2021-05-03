@@ -5,7 +5,7 @@ source components/common.sh
 REPEAT
 
 HEAD "Install Nginx"
-apt install nginx -y
+Npm
 STAT $?
 
 HEAD "Start Nginx Service"
@@ -17,8 +17,9 @@ HEAD "Change directory and make todo directory and switch to todo directory"
 cd /var/www/html && mkdir "todo" && cd todo || exit
 STAT $?
 
-HEAD "Install npm  & run build"
-npm install
+NPM_INSTALL
+
+HEAD "Run build"
 npm run build
 STAT $?
 

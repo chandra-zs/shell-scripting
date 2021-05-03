@@ -14,7 +14,9 @@ STAT(){
 
   fi
 }
-
+NPM(){
+  apt install npm -y
+}
 GIT_CLONE(){
   git clone "https://github.com/zelar-soft-todoapp/${COMPONENT}.git"
   cd "${COMPONENT}" || exit
@@ -23,6 +25,9 @@ REPEAT(){
   set-hostname "${COMPONENT}"
   HEAD "Updating apt repos"
   apt update >>"${LOG}"
+}
+NPM_INSTALL(){
+  npm install
 }
 
 ERROR(){

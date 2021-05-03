@@ -12,7 +12,7 @@ fi
 
 USERNAME=${whoami}
 
-if [ $"{USERNAME" != "root" ]; then
+if [ $"{USERNAME}" != "root" ]; then
   ERROR "u should be a root user to execute this script"
   exit 1
 

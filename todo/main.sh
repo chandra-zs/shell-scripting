@@ -1,6 +1,8 @@
 #!/bin/bash
 
 COMPONENT=$1
+export LOG=/tmp/"$(COMPONENT)".log
+rm -rf "$(LOG)"
 
 source components/common.sh
 

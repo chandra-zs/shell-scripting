@@ -2,4 +2,4 @@
 
 source components/common.sh
 
-SET_PREREQ
+OS_PREREQ

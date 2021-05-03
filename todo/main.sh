@@ -2,6 +2,8 @@
 
 COMPONENT=$1
 
+source components/common.sh
+
 if [ ! -f components/"${COMPONENT}".sh ]; then
   ERROR "Invalid File"
   exit 1

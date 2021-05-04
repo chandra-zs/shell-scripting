@@ -16,7 +16,7 @@ NPM
 STAT $?
 
 HEAD "Change directory and make todo directory and switch to todo directory"
-cd /var/www/html && cd todo || exit
+cd /var/www/html && mkdir todo && cd todo || exit
 STAT $?
 
 HEAD "Clone code from Github"
@@ -30,7 +30,7 @@ STAT $?
 HEAD "Run build"
 npm run build >>"${LOG}"
 killall node >>"${LOG}"
-npm run build
+npm run build >>"${LOG}"
 STAT $?
 
 HEAD "Change root path in nginx"

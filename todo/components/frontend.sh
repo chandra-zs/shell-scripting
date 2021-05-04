@@ -6,7 +6,7 @@ HEAD "Set hostname & update repo"
 REPEAT
 
 HEAD "Install Nginx"
-apt install nginx -y
+apt install nginx -y >>"${LOG}"
 
 HEAD "Start Nginx"
 systemctl start nginx
@@ -24,11 +24,11 @@ GIT_CLONE
 STAT $?
 
 HEAD "Install Npm"
-NPM_INSTALL
+npm install >>"${LOG}"
 STAT $?
 
 HEAD "Run build"
-npm run build
+npm run build >>"${LOG}"
 STAT $?
 
 HEAD "Change root path in nginx"

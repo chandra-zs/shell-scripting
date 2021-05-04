@@ -2,21 +2,22 @@
 
 source components/common.sh
 
+HEAD "Set hostname & update repo"
 REPEAT
 
-HEAD "Install Nginx"
+HEAD "Install Node & Nginx"
 Npm
 STAT $?
 
 HEAD "Start Nginx Service"
-systemctl enable nginx
-systemctl start nginx
+systemctl enable nginx && systemctl start nginx
 STAT $?
 
 HEAD "Change directory and make todo directory and switch to todo directory"
 cd /var/www/html && mkdir "todo" && cd todo || exit
 STAT $?
 
+HEAD "Install Npm"
 NPM_INSTALL
 
 HEAD "Run build"
@@ -24,7 +25,7 @@ npm run build
 STAT $?
 
 HEAD "Change root path in nginx"
-sed -i -e 's/(/var/www/html)/(/var/www/html/todo/frontend/dist' /etc/nginx/sites-available/default
+sed -i -e 's/(/var/www/html)/(/var/www/html/todo/frontend/dist)' /etc/nginx/sites-available/default
 STAT $?
 
 HEAD "Update index.js File With Todo & Login Ip"
@@ -41,10 +42,3 @@ HEAD "run npm start"
 npm start
 STAT $?
 
-
-
-
-
-
-HEAD"Install Npm"
-apt install npm -y

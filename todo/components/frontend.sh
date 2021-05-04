@@ -16,7 +16,16 @@ NPM
 STAT $?
 
 HEAD "Change directory and make todo directory and switch to todo directory"
-cd /var/www/html && mkdir todo && cd todo || exit
+cd /var/www/html 
+
+sudo find . -type d -name "todo"
+# shellcheck disable=SC2181
+if [ $? -ne 0 ]; then
+  mkdir "todo"
+  STAT $?
+fi
+ 
+cd todo || exit
 STAT $?
 
 HEAD "Clone code from Github"
@@ -28,9 +37,9 @@ npm install >>"${LOG}"
 STAT $?
 
 HEAD "Run build"
-npm run build >>"${LOG}"
+BUILD
 killall node >>"${LOG}"
-npm run build >>"${LOG}"
+BUILD
 STAT $?
 
 HEAD "Change root path in nginx"

@@ -11,11 +11,12 @@ GIT_CLONE
 STAT $?
 
 HEAD "Install npm"
-NPM_INSTALL
+npm install
 STAT $?
 
 HEAD "Create service file"
+vi /etc/systemd/system/todo.service
 
 HEAD "Start Todo Service"
-systemctl deamon-reload && systemctl satrt todo && systemctl status todo
+systemctl daemon-reload && systemctl start todo && systemctl status todo
 STAT $?

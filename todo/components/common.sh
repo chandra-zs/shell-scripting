@@ -17,6 +17,9 @@ STAT(){
 NPM(){
   apt install npm -y >>"${LOG}"
 }
+BUILD(){
+  npm run build >>"${LOG}"
+}
 GIT_CLONE(){
   git clone "https://github.com/zelar-soft-todoapp/${COMPONENT}.git"  >>"${LOG}"
   cd "${COMPONENT}" || exit

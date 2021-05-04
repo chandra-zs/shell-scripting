@@ -34,7 +34,8 @@ npm run build
 STAT $?
 
 HEAD "Change root path in nginx"
-sed -i -e 's/(/var/www/html)/(/var/www/html/todo/frontend/dist)' /etc/nginx/sites-available/default
+cd /etc/nginx/sites-available/default
+vi default
 STAT $?
 
 HEAD "Update index.js File With Todo & Login Ip"

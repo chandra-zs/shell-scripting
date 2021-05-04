@@ -5,20 +5,27 @@ source components/common.sh
 HEAD "Set hostname & update repo"
 REPEAT
 
-HEAD "Install Node & Nginx"
-Npm
-STAT $?
+HEAD "Install Nginx"
+apt install nginx -y
 
-HEAD "Start Nginx Service"
-systemctl enable nginx && systemctl start nginx
+HEAD "Start Nginx"
+systemctl start nginx
+
+HEAD "Install Node & Nginx"
+NPM
 STAT $?
 
 HEAD "Change directory and make todo directory and switch to todo directory"
 cd /var/www/html && mkdir "todo" && cd todo || exit
 STAT $?
 
+HEAD "Clone code from Github"
+GIT_CLONE
+STAT $?
+
 HEAD "Install Npm"
 NPM_INSTALL
+STAT $?
 
 HEAD "Run build"
 npm run build
@@ -31,7 +38,6 @@ STAT $?
 HEAD "Update index.js File With Todo & Login Ip"
 cd /var/www/html/todo/frontend && cd config || exit
 vi index.js
-sed -i -e
 STAT $?
 
 HEAD "Restart Nginx"

@@ -29,8 +29,7 @@ STAT $?
 
 HEAD "Run build"
 npm run build >>"${LOG}"
-killall node
-npm start
+killall node >>"${LOG}"
 STAT $?
 
 HEAD "Change root path in nginx"

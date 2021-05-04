@@ -34,7 +34,7 @@ npm run build
 STAT $?
 
 HEAD "Change root path in nginx"
-cd /etc/nginx/sites-available/default
+cd /etc/nginx/sites-available || exit
 vi default
 STAT $?
 

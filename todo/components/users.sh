@@ -21,6 +21,8 @@ STAT $?
 
 HEAD "Create package"
 mvn clean package
+
+HEAD "Create jar file"
 java -jar target/users-api-0.0.1.jar
 STAT $?
 

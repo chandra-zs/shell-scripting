@@ -2,8 +2,8 @@
 source components/common.sh
 HEAD "Set hostname & update repo"
 REPEAT
-HEAD "Install GO"
-wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+#HEAD "Install GO"
+#wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
 
 HEAD "Set path variables"
 export PATH=$PATH:/usr/local/go/bin

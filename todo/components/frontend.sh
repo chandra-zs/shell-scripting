@@ -32,9 +32,9 @@ HEAD "Clone code from Github"
 GIT_CLONE
 STAT $?
 
-#HEAD "Install Npm"
-#npm install >>"${LOG}"
-#STAT $?
+HEAD "Install Npm"
+npm install >>"${LOG}"
+STAT $?
 
 HEAD "Run build"
 BUILD

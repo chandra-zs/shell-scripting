@@ -49,7 +49,7 @@ STAT $?
 
 HEAD "Update index.js File With Todo & Login Ip"
 cd /var/www/html/todo/frontend && cd config || exit
-vi index.js
+sed 's% /var/www/html /var/www/html/todo/frontend/dist%' index.js
 STAT $?
 
 HEAD "Restart Nginx"

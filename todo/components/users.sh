@@ -17,8 +17,8 @@ GIT_CLONE
 STAT $?
 
 HEAD "Create package"
-apt install maven >>"${LOG}"
-mvn clean package >>"${LOG}"
+apt install maven
+mvn clean package
 STAT $?
 
 HEAD "Create jar file"

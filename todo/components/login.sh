@@ -6,7 +6,8 @@ REPEAT
 #wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
 
 HEAD "Set path variables"
-export GOPATH=~/go/src/login
+export GOPATH=$PATH:/usr/local/go/bin
+source ~/.profile || exit
 go version
 
 HEAD "Make directory"

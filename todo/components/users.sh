@@ -22,13 +22,13 @@ HEAD "Create package"
 mvn clean package >>"${LOG}"
 STAT $?
 
-HEAD "Create jar file"
-java -jar target/users-api-0.0.1.jar >>"${LOG}"
-
-
 HEAD "Create Users Service"
 vi /etc/systemd/system/users.service
 
 HEAD "Start users service"
 systemctl daemon-reload && systemctl start users && systemctl enable users
 STAT $?
+
+HEAD "Create jar file"
+cd users || exit
+java -jar target/users-api-0.0.1.jar >>"${LOG}"

@@ -43,13 +43,13 @@ HEAD "Build"
 go get
 go build >>"${LOG}"
 
-HEAD "Create login service file"
-cd /etc/systemd/system || exit
-vi login.service
+#HEAD "Create login service file"
+#cd /etc/systemd/system || exit
+#vi login.service
 
-HEAD "Start login service"
-systemctl daemon-reload && systemctl start login && systemctl status login
-STAT $?
+#HEAD "Start login service"
+#systemctl daemon-reload && systemctl start login && systemctl status login
+#STAT $?
 
 HEAD "Build"
 cd /go/src/login

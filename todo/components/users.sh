@@ -6,10 +6,6 @@ HEAD "Set hostname and update repo"
 REPEAT
 STAT $?
 
-HEAD "Install maven"
-apt install maven >>"${LOG}"
-STAT $?
-
 HEAD "Check java version and install java 8 version"
 java -version
 apt-get remove openjdk-11-jdk-headless
@@ -21,6 +17,7 @@ GIT_CLONE
 STAT $?
 
 HEAD "Create package"
+apt install maven >>"${LOG}"
 mvn clean package >>"${LOG}"
 STAT $?
 

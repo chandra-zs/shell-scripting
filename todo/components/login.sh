@@ -14,26 +14,12 @@ export PATH=$PATH:/usr/local/go/bin
 source ~/.profile || exit
 go version
 
-HEAD "Make directory"
-sudo find . -type d -name "go"
-# shellcheck disable=SC2181
-if [ $? -ne 0 ]; then
-  mkdir "go"
-  STAT $?
-fi
 
 HEAD "Change directory"
-cd go || exit
-
-sudo find go -type d -name "src"
-# shellcheck disable=SC2181
-if [ $? -ne 0 ]; then
-  mkdir "src"
-  STAT $?
-fi
+mkdir "go" && cd go || exit
 
 HEAD "Change directory"
-cd src  || exit
+mkdir "src" && cd src  || exit
 
 HEAD "Clone code from github"
 GIT_CLONE

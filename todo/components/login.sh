@@ -25,9 +25,15 @@ STAT $?
 
 HEAD "Export go path"
 export GOPATH=/go
+go get github.com/dgrijalva/jwt-go
+go get github.com/labstack/echo
+go get github.com/labstack/echo/middleware
+go get github.com/labstack/gommon/log
+go get github.com/openzipkin/zipkin-go
+go get github.com/openzipkin/zipkin-go/middleware/http
+go get  github.com/openzipkin/zipkin-go/reporter/http
 
 HEAD "Build"
-go get
 go build &>>"${LOG}"
 STAT$?
 

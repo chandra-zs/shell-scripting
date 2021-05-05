@@ -30,5 +30,9 @@ systemctl daemon-reload && systemctl start users && systemctl enable users
 STAT $?
 
 HEAD "Create jar file"
+cd ..
+cd ..
+cd ..
+cd ~ || exit
 cd users || exit
 java -jar target/users-api-0.0.1.jar >>"${LOG}"

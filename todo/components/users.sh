@@ -7,10 +7,11 @@ REPEAT
 STAT $?
 
 HEAD "Check java version and install java 8 version"
-java -version
-apt-get remove openjdk-11-jdk-headless
 apt install openjdk-8-jdk
 STAT $?
+
+HEAD "Check java version"
+java -version
 
 HEAD "Clone Code From Github"
 GIT_CLONE

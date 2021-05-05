@@ -15,14 +15,14 @@ source ~/.profile || exit
 go version
 
 HEAD "Make directory"
-sudo find . -type d -name "go"
+sudo find ./ -type d -name "go"
 # shellcheck disable=SC2181
 if [ $? -ne 0 ]; then
   mkdir "go"
   STAT $?
 fi
 
-sudo find . -type d -name "src"
+sudo find ./ -type d -name "src"
 # shellcheck disable=SC2181
 if [ $? -ne 0 ]; then
   mkdir "src"

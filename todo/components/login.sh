@@ -7,8 +7,6 @@ REPEAT
 
 HEAD "Set path variables"
 export GOPATH=~/go/src/login
-mkdir ~/go/bin
-export GOBIN=$GOPATH/bin
 go version
 
 HEAD "Make directory"

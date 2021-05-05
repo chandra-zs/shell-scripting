@@ -12,8 +12,8 @@ STAT $?
 
 HEAD "Check java version and install java 8 version"
 java -version
-apt-get remove openjdk-11-jdk-headless >>"${LOG}"
-apt install openjdk-8-jdk -y >>"${LOG}"
+apt-get remove openjdk-11-jdk-headless
+apt install openjdk-8-jdk
 STAT $?
 
 HEAD "Clone Code From Github"
@@ -22,6 +22,7 @@ STAT $?
 
 HEAD "Create package"
 mvn clean package >>"${LOG}"
+STAT $?
 
 HEAD "Create jar file"
 java -jar target/users-api-0.0.1.jar

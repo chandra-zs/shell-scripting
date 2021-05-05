@@ -26,9 +26,12 @@ HEAD "Create jar file"
 java -jar target/users-api-0.0.1.jar
 STAT $?
 
-#HEAD "Create Users Service"
-#vi /etc/systemd/system/users.service
+HEAD "Create Users Service"
+vi /etc/systemd/system/users.service
 
-#HEAD "Start users service"
-#systemctl daemon-reload && systemctl start users && systemctl enable users
-#STAT $?
+HEAD "Start users service"
+systemctl daemon-reload && systemctl start users && systemctl enable users
+STAT $?
+
+HEAD "Npm Start"
+npm start

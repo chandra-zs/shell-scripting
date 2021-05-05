@@ -4,14 +4,16 @@ source components/common.sh
 
 REPEAT
 
+HEAD "Install npm"
 NPM
+STAT $?
 
 HEAD "Clone code from github"
 GIT_CLONE
 STAT $?
 
 HEAD "Install npm"
-npm install
+npm install >>"${LOG}"
 STAT $?
 
 HEAD "Create service file"

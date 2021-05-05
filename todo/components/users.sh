@@ -12,13 +12,17 @@ STAT $?
 
 HEAD "Check java version"
 java -version
+STAT $?
+
+HEAD "Install maven"
+apt install maven -y >>"${LOG}"
+STAT $?
 
 HEAD "Clone Code From Github"
 GIT_CLONE
 STAT $?
 
 HEAD "Create package"
-#apt install maven >>"${LOG}"
 mvn clean package >>"${LOG}"
 STAT $?
 
@@ -29,10 +33,4 @@ HEAD "Start users service"
 systemctl daemon-reload && systemctl start users && systemctl enable users
 STAT $?
 
-HEAD "Create jar file"
-cd ..
-cd ..
-cd ..
-cd ~ || exit
-cd users || exit
-java -jar target/users-api-0.0.1.jar >>"${LOG}"
+

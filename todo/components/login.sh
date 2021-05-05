@@ -19,7 +19,7 @@ HEAD "Change directory"
 mkdir "/go" && cd go || exit
 
 HEAD "Change directory"
-mkdir "src" && cd src  || exit
+cd src  || exit
 
 HEAD "Clone code from github"
 GIT_CLONE

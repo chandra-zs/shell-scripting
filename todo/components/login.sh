@@ -23,7 +23,7 @@ if [ $? -ne 0 ]; then
 fi
 
 HEAD "Change directory"
-cd go
+cd go || exit
 
 sudo find go -type d -name "src"
 # shellcheck disable=SC2181

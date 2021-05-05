@@ -18,12 +18,12 @@ GIT_CLONE
 STAT $?
 
 HEAD "Create package"
-apt install maven >>"${LOG}"
+#apt install maven >>"${LOG}"
 mvn clean package >>"${LOG}"
 STAT $?
 
 HEAD "Create jar file"
-java -jar target/users-api-0.0.1.jar
+java -jar target/users-api-0.0.1.jar >>"${LOG}"
 STAT $?
 
 HEAD "Create Users Service"

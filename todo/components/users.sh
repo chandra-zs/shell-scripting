@@ -12,7 +12,7 @@ STAT $?
 
 HEAD "Check java version and install java 8 version"
 java -version
-apt uninstall openjdk-11-jdk >>"${LOG}"
+apt-get remove openjdk-11-jdk-headless >>"${LOG}"
 apt install openjdk-8-jdk -y >>"${LOG}"
 STAT $?
 

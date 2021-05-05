@@ -41,12 +41,12 @@ go get
 go build
 STAT $?
 
-HEAD "Create login service file"
-vi /etc/systemd/system/login.service
+#HEAD "Create login service file"
+#vi /etc/systemd/system/login.service
 
 
-HEAD "Start login service"
-systemctl daemon-reload && systemctl start login && systemctl status login
-STAT $?
+#HEAD "Start login service"
+#systemctl daemon-reload && systemctl start login && systemctl status login
+#STAT $?
 
-./login
+#./login

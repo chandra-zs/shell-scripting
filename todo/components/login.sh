@@ -7,6 +7,8 @@ REPEAT
 
 HEAD "Set path variables"
 export PATH=$PATH:/usr/local/go/bin
+
+# shellcheck disable=SC1090
 source ~/.profile || exit
 go version
 

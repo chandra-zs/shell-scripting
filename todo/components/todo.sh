@@ -2,6 +2,7 @@
 
 source components/common.sh
 
+HEAD "Set hostname and update repos"
 REPEAT
 
 HEAD "Install npm"

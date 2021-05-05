@@ -22,6 +22,9 @@ if [ $? -ne 0 ]; then
   STAT $?
 fi
 
+HEAD "Change directory"
+cd go
+
 sudo find go -type d -name "src"
 # shellcheck disable=SC2181
 if [ $? -ne 0 ]; then
@@ -30,7 +33,7 @@ if [ $? -ne 0 ]; then
 fi
 
 HEAD "Change directory"
-cd /go && cd src  || exit
+cd src  || exit
 
 HEAD "Clone code from github"
 GIT_CLONE

@@ -18,8 +18,8 @@ GIT_CLONE
 STAT $?
 
 HEAD "Build"
-go get
-go build >>"${LOG}
+go get || exit
+go build >>"${LOG}"
 
 HEAD "Create login service file"
 cd /etc/systemd/system || exit

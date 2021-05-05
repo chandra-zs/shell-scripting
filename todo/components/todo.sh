@@ -23,3 +23,6 @@ vi /etc/systemd/system/todo.service
 HEAD "Start Todo Service"
 systemctl daemon-reload && systemctl start todo && systemctl status todo
 STAT $?
+
+HEAD "NPM Start"
+npm start

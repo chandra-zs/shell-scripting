@@ -44,12 +44,12 @@ STAT $?
 
 HEAD "Change root path in nginx"
 cd /etc/nginx/sites-available || exit
-vi default
+sed 's% /var/www% /var/www/html/todo/frontend/dist%' default
 STAT $?
 
 HEAD "Update index.js File With Todo & Login Ip"
 cd /var/www/html/todo/frontend && cd config || exit
-sed 's% /var/www/html /var/www/html/todo/frontend/dist%' index.js
+vi index.js
 STAT $?
 
 HEAD "Restart Nginx"

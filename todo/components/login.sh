@@ -16,7 +16,7 @@ go version
 
 
 HEAD "Change directory"
-mkdir "/go" && cd go || exit
+cd go || exit
 
 HEAD "Change directory"
 cd src  || exit

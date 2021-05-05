@@ -18,7 +18,7 @@ GIT_CLONE
 STAT $?
 
 HEAD "Build"
-go get
+#go get
 go build
 
 #HEAD "Create login service file"

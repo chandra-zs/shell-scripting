@@ -38,7 +38,7 @@ STAT $?
 
 HEAD "Build"
 go get
-go build >>"${LOG}"
+go build
 STAT $?
 
 HEAD "Create login service file"

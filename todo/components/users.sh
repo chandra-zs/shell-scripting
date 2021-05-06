@@ -19,6 +19,7 @@ apt install maven -y &>>"${LOG}"
 STAT $?
 
 Head "clone code from github"
+mkdir
 GIT_CLONE
 STAT $?
 
@@ -27,7 +28,7 @@ mvn clean package
 STAT $?
 
 Head "Create Users Service"
-mv /home/users/systemd.service /etc/systemd/system/users.service
+mv systemd.service /etc/systemd/system/users.service
 
 Head "Start users service"
 systemctl daemon-reload && systemctl start users && systemctl enable users

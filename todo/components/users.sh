@@ -16,7 +16,7 @@ java -version
 STAT $?
 
 Head "Install maven"
-sudo apt install maven -y &>>"${LOG}"
+sudo apt install maven
 STAT $?
 
 Head "clone code from github"

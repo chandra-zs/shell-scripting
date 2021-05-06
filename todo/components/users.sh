@@ -17,12 +17,10 @@ STAT $?
 GIT_CLONE
 STAT $?
 
-Head "Create package"
-mvn clean package
-STAT $?
+#Head "Create package"
+#mvn clean package
+#STAT $?
 
-java -jar target/users-api-0.0.1.jar
-STAT $?
 Head "Create Users Service"
 mv systemd.service /etc/systemd/system/users.service
 Head "Start users service"

@@ -19,9 +19,8 @@ Head "Install maven"
 sudo apt install maven
 STAT $?
 
-Head "clone code from github"
-CLONE
-STAT $?
+Head "Clone code"
+C
 
 Head "Create package"
 mvn clean package

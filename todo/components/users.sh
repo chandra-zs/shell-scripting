@@ -7,8 +7,7 @@ REPEAT
 STAT $?
 
 Head "install java 8 version"
-# shellcheck disable=SC2024
-sudo apt install openjdk-8-jdk -y &>>"${LOG}"
+sudo apt install openjdk-8-jdk -y
 STAT $?
 
 Head "check java version"

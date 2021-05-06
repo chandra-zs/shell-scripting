@@ -1,4 +1,5 @@
 #!/bin/bash
+
 source components/common.sh
 
 Head "Set hostname and update repo"
@@ -19,7 +20,7 @@ sudo apt install maven
 STAT $?
 
 Head "clone code from github"
-GIT_CLONE
+CLONE
 STAT $?
 
 Head "Create package"

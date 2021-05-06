@@ -15,7 +15,7 @@ go version
 STAT $?
 
 Head "Make directory"
-cd /go && cd src
+cd /go && cd src || exit
 GIT_CLONE
 STAT $?
 

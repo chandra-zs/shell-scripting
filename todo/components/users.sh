@@ -14,12 +14,13 @@ STAT $?
 Head "check java version"
 java -version
 STAT $?
+
 Head "Install maven"
-sudo apt install maven -y
+apt-get install maven -y
 STAT $?
+
 Head "Clone code"
-git clone "https://github.com/chandra-zs/users.git" &>>"${LOG}"
-cd users ||  exit
+GIT_CLONE
 STAT $?
 Head "Create package"
 mvn clean package

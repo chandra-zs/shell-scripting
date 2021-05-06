@@ -1,36 +1,31 @@
 #!/bin/bash
 
 source components/common.sh
-
-HEAD "Set hostname and update repo"
+Head "Set hostname and update repo"
 REPEAT
 STAT $?
 
-HEAD "Check java version and install java 8 version"
-apt install openjdk-8-jdk
+Head "install java 8 version"
+apt-get install openjdk-8-jdk -y &>>"${LOG}"
 STAT $?
 
-HEAD "Check java version"
+Head "check java version"
 java -version
 STAT $?
 
-HEAD "Install maven"
-apt install maven -y >>"${LOG}"
+Head "Install maven"
+apt install maven -y &>>"${LOG}"
 STAT $?
-
-HEAD "Clone Code From Github"
 GIT_CLONE
 STAT $?
 
-HEAD "Create package"
-mvn clean package >>"${LOG}"
+Head "Create package"
+mvn clean package
 STAT $?
 
-HEAD "Create Users Service"
+Head "Create Users Service"
 vi /etc/systemd/system/users.service
 
-HEAD "Start users service"
+Head "Start users service"
 systemctl daemon-reload && systemctl start users && systemctl enable users
 STAT $?
-
-

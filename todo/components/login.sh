@@ -16,6 +16,7 @@ STAT $?
 
 Head "Make directory"
 cd /go && cd src || exit
+STAT $?
 GIT_CLONE
 STAT $?
 

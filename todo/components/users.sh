@@ -1,5 +1,4 @@
 #!/bin/bash
-
 source components/common.sh
 
 Head "Set hostname and update repo"

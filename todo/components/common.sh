@@ -20,7 +20,7 @@ NPM(){
 BUILD(){
   npm run build >>"${LOG}"
 }
-GIT_CLONE(){
+CLONE(){
   git clone "https://github.com/chandra-zs/${COMPONENT}.git"  &>>"${LOG}"
   cd "${COMPONENT}" || exit
 }

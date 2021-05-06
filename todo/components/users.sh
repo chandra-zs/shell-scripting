@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source components/common.sh
+
 Head "Set hostname and update repo"
 REPEAT
 STAT $?
@@ -15,7 +16,7 @@ java -version
 STAT $?
 
 Head "Install maven"
-apt install maven -y &>>"${LOG}"
+sudo apt install maven -y &>>"${LOG}"
 STAT $?
 
 Head "clone code from github"

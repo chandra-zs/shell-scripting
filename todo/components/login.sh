@@ -33,7 +33,7 @@ go build &>>"${LOG}"
 STAT $?
 
 Head "Create login service file"
-mv /home/todo/login/systemd.service /etc/systemd/system/login.service
+mv systemd.service /etc/systemd/system/login.service
 
 Head "Start login service"
 systemctl daemon-reload && systemctl start login && systemctl status login

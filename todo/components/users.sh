@@ -7,7 +7,7 @@ REPEAT
 STAT $?
 
 Head "install java 8 version"
-sudo apt install openjdk-8-jdk -y
+apt install openjdk-8-jdk -y
 STAT $?
 
 Head "check java version"

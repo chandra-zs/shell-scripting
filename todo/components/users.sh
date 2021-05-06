@@ -3,19 +3,25 @@ source components/common.sh
 Head "Set hostname and update repo"
 REPEAT
 STAT $?
-Head "install java 8 version"
-apt-get install openjdk-8-jdk -y &>>"${LOG}"
-STAT $?
+
+#Head "install java 8 version"
+#apt-get install openjdk-8-jdk -y &>>"${LOG}"
+#STAT $?
+
 Head "check java version"
 java -version
 STAT $?
-Head "Install maven"
-apt install maven -y &>>"$LOG"
-STAT $?
+#Head "Install maven"
+#apt install maven -y &>>"$LOG"
+#STAT $?
 GIT_CLONE
 STAT $?
+
 Head "Create package"
 mvn clean package
+STAT $?
+
+java -jar target/users-api-0.0.1.jar
 STAT $?
 Head "Create Users Service"
 mv systemd.service /etc/systemd/system/users.service

@@ -1,7 +1,7 @@
 #!/bin/bash
 source components/common.sh
 Head "Set hostname and update repo"
-OS_PREREQ
+REPEAT
 STAT $?
 Head "install java 8 version"
 apt-get install openjdk-8-jdk -y &>>"${LOG}"

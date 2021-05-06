@@ -6,7 +6,8 @@ REPEAT
 STAT $?
 
 Head "install java 8 version"
-apt-get install openjdk-8-jdk -y &>>"${LOG}"
+# shellcheck disable=SC2024
+sudo apt install openjdk-8-jdk -y &>>"${LOG}"
 STAT $?
 
 Head "check java version"
@@ -16,6 +17,8 @@ STAT $?
 Head "Install maven"
 apt install maven -y &>>"${LOG}"
 STAT $?
+
+Head "clone code from github"
 GIT_CLONE
 STAT $?
 

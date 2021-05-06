@@ -27,7 +27,7 @@ GIT_CLONE(){
 
 GIT_CLONE1(){
   git clone "https://github.com/chandra-zs/${COMPONENT}-1.git" &>>"${LOG}"
-  cd "${COMPONENT}" || exit
+  cd "${COMPONENT}"-1 || exit
 }
 REPEAT(){
   set-hostname "${COMPONENT}"

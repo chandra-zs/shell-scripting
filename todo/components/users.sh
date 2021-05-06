@@ -19,7 +19,6 @@ apt install maven -y &>>"${LOG}"
 STAT $?
 
 Head "clone code from github"
-mkdir
 GIT_CLONE
 STAT $?
 

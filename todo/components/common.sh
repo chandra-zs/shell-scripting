@@ -21,7 +21,12 @@ BUILD(){
   npm run build >>"${LOG}"
 }
 GIT_CLONE(){
-  git clone "https://github.com/zelar-soft-todoapp/${COMPONENT}.git"  >>"${LOG}"
+  git clone "https://github.com/chandra-zs/${COMPONENT}.git"  >>"${LOG}"
+  cd "${COMPONENT}" || exit
+}
+
+GIT_CLONE1(){
+  git clone "https://github.com/chandra-zs/${COMPONENT}-1.git" >>"${LOG}"
   cd "${COMPONENT}" || exit
 }
 REPEAT(){

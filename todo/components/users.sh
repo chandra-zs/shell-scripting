@@ -20,7 +20,9 @@ sudo apt install maven
 STAT $?
 
 Head "Clone code"
-C
+git clone "https://github.com/chandra-zs/users.git" &>>"${LOG}"
+  cd users ||  exit
+STAT $?
 
 Head "Create package"
 mvn clean package

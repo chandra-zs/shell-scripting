@@ -10,7 +10,7 @@ NPM
 STAT $?
 
 HEAD "Clone code from github"
-GIT_CLONE
+GIT_CLONE1
 STAT $?
 
 HEAD "Install npm"

@@ -16,7 +16,7 @@ NPM
 STAT $?
 
 HEAD "Change directory and make todo directory and switch to todo directory"
-cd /var/www/html 
+cd /var/www/html || exit
 
 sudo find . -type d -name "todo"
 # shellcheck disable=SC2181
@@ -29,7 +29,7 @@ cd todo || exit
 STAT $?
 
 HEAD "Clone code from Github"
-GIT_CLONE
+GIT_CLONE1
 STAT $?
 
 HEAD "Install Npm"

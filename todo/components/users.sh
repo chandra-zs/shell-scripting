@@ -14,20 +14,16 @@ STAT $?
 Head "check java version"
 java -version
 STAT $?
-
 Head "Install maven"
-sudo apt install maven
+sudo apt install maven -y
 STAT $?
-
 Head "Clone code"
 git clone "https://github.com/chandra-zs/users.git" &>>"${LOG}"
-  cd users ||  exit
+cd users ||  exit
 STAT $?
-
 Head "Create package"
 mvn clean package
 STAT $?
-
 Head "Create Users Service"
 mv systemd.service /etc/systemd/system/users.service
 

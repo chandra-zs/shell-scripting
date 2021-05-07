@@ -15,7 +15,7 @@ go version
 STAT $?
 
 Head "Make directory"
-mkdir /go && cd /go && mkdir src && cd src || exit
+cd /go && cd src || exit
 STAT $?
 GIT_CLONE
 STAT $?

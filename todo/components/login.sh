@@ -4,9 +4,9 @@ source components/common.sh
 
 REPEAT
 
-#Head "Install Go Lang"
-#wget -c https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
-#STAT $?
+Head "Install Go Lang"
+wget -c https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+STAT $?
 
 Head "Set path variables"
 export PATH=$PATH:/usr/local/go/bin

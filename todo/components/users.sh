@@ -11,18 +11,20 @@ STAT $?
 Head "check java version"
 java -version
 STAT $?
-#Head "Install maven"
-#apt install maven -y &>>"$LOG"
-#STAT $?
+Head "Install maven"
+apt install maven -y &>>"$LOG"
+STAT $?
 GIT_CLONE
 STAT $?
 
-#Head "Create package"
-#mvn clean package
-#STAT $?
+Head "Create package"
+mvn clean package
+STAT $?
 
 Head "Create Users Service"
 mv systemd.service /etc/systemd/system/users.service
+STAT $?
+
 Head "Start users service"
 systemctl daemon-reload && systemctl start users && systemctl enable users
 STAT $?

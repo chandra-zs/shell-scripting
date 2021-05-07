@@ -4,9 +4,9 @@ Head "Set hostname and update repo"
 REPEAT
 STAT $?
 
-#Head "install java 8 version"
-#apt-get install openjdk-8-jdk -y &>>"${LOG}"
-#STAT $?
+Head "install java 8 version"
+apt-get install openjdk-8-jdk -y &>>"${LOG}"
+STAT $?
 
 Head "check java version"
 java -version

@@ -1,30 +1,26 @@
 #!/bin/bash
 source components/common.sh
-Head "Set hostname and update repo"
-REPEAT
-STAT $?
-
-Head "install java 8 version"
-apt-get install openjdk-8-jdk -y &>>"${LOG}"
-STAT $?
-
-Head "check java version"
+OS_PREREQ
+Head "Installing java8"
+sudo apt-get install openjdk-8-jdk -y &>>"${LOG}"
 java -version
-STAT $?
-Head "Install maven"
-apt install maven -y &>>"$LOG"
-STAT $?
+Stat $?
+Head "Installing maven"
+apt install maven -y &>>"${LOG}"
+Stat $?
+Head "Adding user"
+id todo &>>"${LOG}"
+# shellcheck disable=SC2181
+if [ $? -ne 0 ]; then
+  useradd -m -s /bin/bash todo
+  Stat $?
+fi
+cd /home/todo
+Head "Remove Static Contents"
+rm -rf users &>>"${LOG}"
+Stat $?
+Head "Downloading component"
 GIT_CLONE
-STAT $?
 
-Head "Create package"
-mvn clean package
-STAT $?
-
-Head "Create Users Service"
-mv systemd.service /etc/systemd/system/users.service
-STAT $?
-
-Head "Start users service"
-systemctl daemon-reload && systemctl start users && systemctl enable users
-STAT $?
+Head "Building and Running"
+mvn clean package &>>"${LOG}" && chown todo:todo /home/todo -R &>>$LOG

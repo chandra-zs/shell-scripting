@@ -5,8 +5,8 @@ source components/common.sh
 HEAD "Set hostname & update repo"
 REPEAT
 
-#HEAD "Install Nginx"
-#apt install nginx -y &>>"${LOG}"
+HEAD "Install Nginx"
+apt install nginx -y &>>"${LOG}"
 
 HEAD "Start Nginx"
 systemctl start nginx

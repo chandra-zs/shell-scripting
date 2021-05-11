@@ -22,8 +22,7 @@ HEAD "Create service file"
 mv /root/shell-scripting/todo/todo/systemd.service /etc/systemd/system/todo.service
 
 HEAD "Replace Ip with DNS Names"
-sed –i –e 's/172.31.19.195/todo.chandra1.online' /etc/systemd/system/todo.service
-
+sed -i -e 's/Environment=REDIS_HOST=172.31.19.195/Environment=REDIS_HOST=redis.chandra1.online/g' /etc/systemd/system/todo.service
 HEAD "Start Todo Service"
 systemctl daemon-reload && systemctl start todo && systemctl status todo
 STAT $?

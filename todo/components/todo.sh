@@ -2,8 +2,9 @@
 
 source components/common.sh
 
-HEAD "Set hostname and update repos"
+HEAD "Set hostname and update repo"
 REPEAT
+STAT $?
 
 HEAD "Install npm"
 NPM

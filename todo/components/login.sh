@@ -2,7 +2,9 @@
 
 source components/common.sh
 
+Head "Set Hostname and Update Repo"
 REPEAT
+STAT $?
 
 Head "Install Go Lang"
 wget -c https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local

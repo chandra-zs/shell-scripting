@@ -43,9 +43,11 @@ STAT $?
 
 HEAD "Change root path in nginx"
 sed -i -e 's+root /var/www/html+root /var/www/html/vue/frontend/dist+g' /etc/nginx/sites-available/default
-
 STAT $?
 
+HEAD "Providing Login & Todo DNS names"
+export AUTH_API_ADDRESS=http://login.chandra1.online:8080
+export TODOS_API_ADDRESS=http://todo.chandra1.online:8080
 HEAD "Restart Nginx"
 systemctl restart nginx
 STAT $?

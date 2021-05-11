@@ -30,10 +30,6 @@ GIT_CLONE(){
   cd "${COMPONENT}" ||  exit
 }
 
-GIT_CLONE1(){
-  git clone "https://github.com/chandra-zs/${COMPONENT}-1.git" &>>"${LOG}"
-  cd "${COMPONENT}"-1 || exit
-}
 REPEAT(){
   set-hostname "${COMPONENT}"
   HEAD "Updating apt repos"

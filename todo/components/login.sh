@@ -37,6 +37,9 @@ Stat $?
 HEAD "Create login service file"
 mv /root/go/src/login/systemd.service /etc/systemd/system/login.service
 
+HEAD "Replace Ip with DNS Names"
+sed –i –e 's/http://172.31.52.92/http://users.chandra1.online:8080' /etc/systemd/system/login.service
+
 HEAD "Start login service"
 systemctl daemon-reload && systemctl start login && systemctl status login
 STAT $?

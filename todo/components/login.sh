@@ -17,7 +17,10 @@ go version
 STAT $?
 
 HEAD "Make directory"
-mkdir -p go && cd /go && mkdir -p src && cd src || exit
+mkdir go
+cd /go
+mkdir src
+cd src
 STAT $?
 
 HEAD "Clone code"

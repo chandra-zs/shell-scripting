@@ -11,7 +11,7 @@ NPM
 STAT $?
 
 HEAD "Clone code from github"
-GIT_CLONE1
+GIT_CLONE
 STAT $?
 
 HEAD "Install npm"
@@ -19,11 +19,8 @@ npm install >>"${LOG}"
 STAT $?
 
 HEAD "Create service file"
-mv systemd.service /etc/systemd/system/todo.service
+mv /root/shell-scripting/todo/todo/systemd.service /etc/systemd/system/todo.service
 
 HEAD "Start Todo Service"
 systemctl daemon-reload && systemctl start todo && systemctl status todo
 STAT $?
-
-HEAD "NPM Start"
-npm start

@@ -30,7 +30,7 @@ mkdir -p todo && cd todo
 STAT $?
 
 HEAD "Clone code from Github"
-GIT_CLONE1
+GIT_CLONE
 STAT $?
 
 HEAD "Install Npm"

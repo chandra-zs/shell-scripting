@@ -26,7 +26,7 @@ STAT $?
   # STAT $?
 #fi
 HEAD "make todo directory and switch"
-mkdir todo && cd todo || exit
+mkdir todo && cd todo
 STAT $?
 
 HEAD "Clone code from Github"
@@ -34,7 +34,7 @@ GIT_CLONE
 STAT $?
 
 HEAD "Install Npm"
-npm install >>"${LOG}"
+npm install &>>${LOG}
 STAT $?
 
 HEAD "Run build"
@@ -42,14 +42,9 @@ BUILD
 STAT $?
 
 HEAD "Change root path in nginx"
-cd /etc/nginx/sites-available || exit
+cd /etc/nginx/sites-available
 sed -i -e 's+root /var/www/html+root /var/www/html/todo/frontend/dist+g' default
 
-STAT $?
-
-HEAD "Update index.js File With Todo & Login Ip"
-cd /var/www/html/todo/frontend && cd config || exit
-vi index.js
 STAT $?
 
 HEAD "Restart Nginx"

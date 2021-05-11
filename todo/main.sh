@@ -6,7 +6,7 @@ COMPONENT=$1
 
 source components/common.sh
 
-if [ ! -f components/${COMPONENT}.sh ]; then
+if [ ! -f components/"${COMPONENT}".sh ]; then
   ERROR "Invalid File"
   exit 1
 
@@ -21,4 +21,4 @@ fi
 
 
 export COMPONENT
-bash components/${COMPONENT}.sh
+bash components/"${COMPONENT}".sh

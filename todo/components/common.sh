@@ -27,7 +27,7 @@ BUILD(){
 }
 GIT_CLONE(){
   git clone "https://github.com/chandra-zs/${COMPONENT}.git" &>>"${LOG}"
-  cd "${COMPONENT}" ||  exit
+  cd "${COMPONENT}"
 }
 
 REPEAT(){

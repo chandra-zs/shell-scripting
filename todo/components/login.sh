@@ -24,7 +24,7 @@ cd src
 STAT $?
 
 HEAD "Clone code"
-git clone "https://github.com/chandra-zs/login.git" &>>"${LOG}"
+git clone "https://github.com/chandra-zs/login.git" &>>${LOG}
 STAT $?
 
 HEAD "Export go path in directory"

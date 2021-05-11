@@ -45,7 +45,7 @@ STAT $?
 
 HEAD "Change root path in nginx"
 cd /etc/nginx/sites-available || exit
-sed -i 's/\/var\/www\/html/\/var\/www\/html\/todo\/frontend\/dist/g' filename.txt default
+sed -i -e 's/\/var\/www\/html/\/var\/www\/html\/todo\/frontend\/dist/g' default
 STAT $?
 
 HEAD "Update index.js File With Todo & Login Ip"

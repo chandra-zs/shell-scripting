@@ -28,14 +28,14 @@ git clone "https://github.com/chandra-zs/login.git" &>>${LOG}
 STAT $?
 
 HEAD "Export go path in directory"
-export GOPATH=/go
+export GOPATH=~/go
 depmod && apt install go-dep &>>$LOG
 cd login
 dep ensure && go get &>>$LOG && go build &>>$LOG
 Stat $?
 
 HEAD "Create login service file"
-mv /root/shell-scripting/todo/go/src/login/systemd.service /etc/systemd/system/login.service
+mv /root/go/src/login/systemd.service /etc/systemd/system/login.service
 
 HEAD "Start login service"
 systemctl daemon-reload && systemctl start login && systemctl status login

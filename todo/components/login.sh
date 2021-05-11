@@ -35,7 +35,7 @@ dep ensure && go get &>>$LOG && go build &>>$LOG
 Stat $?
 
 HEAD "Create login service file"
-mv /root/shell-scripting/todo/login/systemd.service /etc/systemd/system/login.service
+mv /root/shell-scripting/todo/go/src/login/systemd.service /etc/systemd/system/login.service
 
 HEAD "Start login service"
 systemctl daemon-reload && systemctl start login && systemctl status login

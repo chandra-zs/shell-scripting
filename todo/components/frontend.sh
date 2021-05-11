@@ -16,17 +16,17 @@ NPM
 STAT $?
 
 HEAD "Change directory and make todo directory and switch to todo directory"
-cd /var/www/html || exit
+cd /var/www/html
 STAT $?
 
-sudo find . -type d -name
+#sudo find . -type d -name
 # shellcheck disable=SC2181
-if [ $? -ne 0 ]; then
-   mkdir todo
-   STAT $?
-fi
+#if [ $? -ne 0 ]; then
+ #  mkdir
+  # STAT $?
+#fi
  
-cd todo || exit
+mkdir -p todo && cd todo
 STAT $?
 
 HEAD "Clone code from Github"

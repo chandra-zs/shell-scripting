@@ -39,8 +39,6 @@ STAT $?
 
 HEAD "Run build"
 BUILD
-killall node >>"${LOG}"
-BUILD
 STAT $?
 
 HEAD "Change root path in nginx"

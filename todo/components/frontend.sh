@@ -42,8 +42,7 @@ BUILD
 STAT $?
 
 HEAD "Change root path in nginx"
-cd /etc/nginx/sites-available
-sed -i -e 's+root /var/www/html+root /var/www/html/todo/frontend/dist+g' default
+sed -i -e 's+root /var/www/html+root /var/www/html/vue/frontend/dist+g' /etc/nginx/sites-available/default
 
 STAT $?
 

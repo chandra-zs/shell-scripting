@@ -5,8 +5,8 @@ source components/common.sh
 HEAD "Set hostname & update repo"
 REPEAT
 
-HEAD "Install Nginx"
-apt install nginx -y &>>"${LOG}"
+#HEAD "Install Nginx"
+#apt install nginx -y &>>"${LOG}"
 
 HEAD "Start Nginx"
 systemctl start nginx
@@ -17,13 +17,14 @@ STAT $?
 
 HEAD "Change directory and make todo directory and switch to todo directory"
 cd /var/www/html || exit
+STAT $?
 
-sudo find . -type d -name "todo"
+#sudo find . -type d -name
 # shellcheck disable=SC2181
-if [ $? -ne 0 ]; then
-  mkdir "todo"
-  STAT $?
-fi
+#if [ $? -ne 0 ]; then
+#mkdir
+  #STAT $?
+#fi
  
 cd todo || exit
 STAT $?

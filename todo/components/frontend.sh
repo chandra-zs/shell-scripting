@@ -26,7 +26,7 @@ STAT $?
   # STAT $?
 #fi
 HEAD "make todo directory and switch"
-mkdir todo && cd todo
+mkdir vue && cd vue
 STAT $?
 
 HEAD "Clone code from Github"

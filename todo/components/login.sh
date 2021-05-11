@@ -17,33 +17,25 @@ go version
 STAT $?
 
 HEAD "Make directory"
-mkdir go
-cd /go
+mkdir ~/go
+cd ~/go
 mkdir src
 cd src
 STAT $?
 
 HEAD "Clone code"
-GIT_CLONE
+git clone "https://github.com/chandra-zs/login.git" &>>"${LOG}"
 STAT $?
 
 HEAD "Export go path in directory"
 export GOPATH=/go
-go get github.com/dgrijalva/jwt-go
-go get github.com/labstack/echo
-go get github.com/labstack/echo/middleware
-go get github.com/labstack/gommon/log
-go get github.com/openzipkin/zipkin-go
-go get github.com/openzipkin/zipkin-go/middleware/http
-go get  github.com/openzipkin/zipkin-go/reporter/http
+depmod && apt install go-dep &>>$LOG
+cd login
+dep ensure && go get &>>$LOG && go build &>>$LOG
 Stat $?
 
-HEAD "Build"
-go build &>>"${LOG}"
-STAT $?
-
 HEAD "Create login service file"
-mv systemd.service /etc/systemd/system/login.service
+mv /root/shell-scripting/todo/login/systemd.service /etc/systemd/system/login.service
 
 HEAD "Start login service"
 systemctl daemon-reload && systemctl start login && systemctl status login

@@ -16,7 +16,7 @@ NPM
 STAT $?
 
 HEAD "Change directory and make todo directory and switch to todo directory"
-cd /var/www/html
+cd /var/www/html || exit
 STAT $?
 
 #sudo find . -type d -name
@@ -26,7 +26,7 @@ STAT $?
   # STAT $?
 #fi
  
-mkdir -p todo && cd todo
+mkdir -p todo && cd todo || exit
 STAT $?
 
 HEAD "Clone code from Github"

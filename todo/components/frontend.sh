@@ -19,12 +19,12 @@ HEAD "Change directory and make todo directory and switch to todo directory"
 cd /var/www/html || exit
 STAT $?
 
-#sudo find . -type d -name
+sudo find . -type d -name
 # shellcheck disable=SC2181
-#if [ $? -ne 0 ]; then
-#mkdir
-  #STAT $?
-#fi
+if [ $? -ne 0 ]; then
+   mkdir todo
+   STAT $?
+fi
  
 cd todo || exit
 STAT $?

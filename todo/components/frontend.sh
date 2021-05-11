@@ -15,7 +15,7 @@ HEAD "Install Node & Nginx"
 NPM
 STAT $?
 
-HEAD "Change directory and make todo directory and switch to todo directory"
+HEAD "switch to html directory"
 cd /var/www/html || exit
 STAT $?
 
@@ -25,7 +25,7 @@ STAT $?
  #  mkdir
   # STAT $?
 #fi
- 
+HEAD "make todo directory and switch"
 mkdir -p todo && cd todo || exit
 STAT $?
 

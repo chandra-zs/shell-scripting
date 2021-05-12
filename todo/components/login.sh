@@ -29,9 +29,9 @@ STAT $?
 
 HEAD "Export go path in directory"
 export GOPATH=~/go
-depmod && apt install go-dep &>>$LOG
+depmod && apt install go-dep &>>${LOG}
 cd login
-dep ensure && go get &>>$LOG && go build &>>$LOG
+dep ensure && go get &>>${LOG} && go build &>>${LOG}
 Stat $?
 
 HEAD "Create login service file"

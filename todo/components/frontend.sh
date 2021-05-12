@@ -6,7 +6,7 @@ HEAD "Set hostname & update repo"
 REPEAT
 
 HEAD "Install Nginx"
-apt install nginx -y &>>"${LOG}"
+apt install nginx -y &>>${LOG}
 
 HEAD "Start Nginx"
 systemctl start nginx

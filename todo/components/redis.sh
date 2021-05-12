@@ -7,7 +7,7 @@ REPEAT
 STAT $?
 
 HEAD "Install redis server"
-sudo apt install redis-server -y >>"${LOG}"
+sudo apt install redis-server -y >>${LOG}
 STAT $?
 
 HEAD "Change ip address in redis config file"

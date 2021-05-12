@@ -20,20 +20,20 @@ STAT(){
   fi
 }
 NPM(){
-  apt install npm -y >>"${LOG}"
+  apt install npm -y >>${LOG}
 }
 BUILD(){
-  npm run build >>"${LOG}"
+  npm run build >>${LOG}
 }
 GIT_CLONE(){
-  git clone "https://github.com/chandra-zs/${COMPONENT}.git" &>>"${LOG}"
+  git clone "https://github.com/chandra-zs/${COMPONENT}.git" &>>${LOG}
   cd "${COMPONENT}"
 }
 
 REPEAT(){
   set-hostname "${COMPONENT}"
   HEAD "Updating apt repos"
-  apt update >>"${LOG}"
+  apt update >>${LOG}
 }
 
 ERROR(){

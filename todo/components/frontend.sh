@@ -25,6 +25,7 @@ STAT $?
  #  mkdir
   # STAT $?
 #fi
+
 HEAD "make todo directory and switch"
 mkdir vue && cd vue
 STAT $?

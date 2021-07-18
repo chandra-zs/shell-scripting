@@ -25,6 +25,9 @@ STAT $?
  #  mkdir
   # STAT $?
 #fi
+HEAD "Delete vue directory"
+rm -rf vue
+
 
 HEAD "make todo directory and switch"
 mkdir vue && cd vue

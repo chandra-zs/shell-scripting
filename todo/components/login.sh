@@ -38,7 +38,7 @@ HEAD "Create login service file"
 mv /root/go/src/login/systemd.service /etc/systemd/system/login.service
 
 HEAD "Replace Ip with DNS Names"
-sed -i -e 's/172.31.52.92/users.chandra1.online/g' /etc/systemd/system/login.service
+sed -i -e 's/172.31.0.160/users.chandra1.online/g' /etc/systemd/system/login.service
 
 HEAD "Start login service"
 systemctl daemon-reload && systemctl start login && systemctl status login

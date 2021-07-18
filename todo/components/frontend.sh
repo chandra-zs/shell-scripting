@@ -46,7 +46,7 @@ BUILD
 STAT $?
 
 HEAD "Change root path in nginx"
-sed -i -e 's+root /var/www/html+root /var/www/html/vue/frontend/dist+g' /etc/nginx/sites-available/default
+sed -i -e 's+root /var/www/html+root /var/www/html/vue/frontend/dist' /etc/nginx/sites-available/default
 STAT $?
 
 HEAD "Providing Login & Todo DNS names"

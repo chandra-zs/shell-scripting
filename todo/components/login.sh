@@ -2,43 +2,28 @@
 
 source components/common.sh
 
+DOMAIN="chandra1.online"
+
 HEAD "Set Hostname and Update Repo"
 REPEAT
 STAT $?
 
 HEAD "Install Go Lang"
-wget -c https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
-STAT $?
-
-HEAD "Set path variables"
-export PATH=$PATH:/usr/local/go/bin
-source ~/.profile
-go version
-STAT $?
-
-HEAD "Make directory"
-mkdir ~/go
-cd ~/go
-mkdir src
-cd src
-STAT $?
-
-HEAD "Clone code"
-git clone "https://github.com/chandra-zs/login.git" &>>${LOG}
-STAT $?
-
-HEAD "Export go path in directory"
-export GOPATH=~/go
-depmod && apt install go-dep &>>${LOG}
-cd login
-dep ensure && go get &>>${LOG} && go build &>>${LOG}
+apt install golang -y &>>$LOG
 Stat $?
 
-HEAD "Create login service file"
-mv /root/go/src/login/systemd.service /etc/systemd/system/login.service
+DOWNLOAD_COMPONENT
 
-HEAD "Replace Ip with DNS Names"
-sed -i -e 's/172.31.0.160/users.chandra1.online/g' /etc/systemd/system/login.service
+Head "Extract Downloaded Archive"
+cd /home/ubuntu && rm -rf login && unzip -o /tmp/login.zip &>>$LOG  && mv login-main login && cd /home/ubuntu/login && export GOPATH=/home/ubuntu/go && export GOBIN=$GOPATH/bin && go get &>>$LOG && go build
+Stat $?
+
+Head "Update EndPoints in Service File"
+sed -i -e "s/user_endpoint/users.${DOMAIN}/" /home/ubuntu/login/systemd.service
+Stat $?
+
+HEAD "Move login service file"
+mv /home/ubuntu/login/systemd.service /etc/systemd/system/login.service
 
 HEAD "Start login service"
 systemctl daemon-reload && systemctl start login && systemctl status login

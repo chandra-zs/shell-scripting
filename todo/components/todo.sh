@@ -2,6 +2,8 @@
 
 source components/common.sh
 
+DOMAIN="chandra1.online"
+
 HEAD "Set hostname and update repo"
 REPEAT
 STAT $?
@@ -10,19 +12,19 @@ HEAD "Install npm"
 NPM
 STAT $?
 
-HEAD "Clone code from github"
-GIT_CLONE
-STAT $?
+DOWNLOAD_COMPONENT
 
-HEAD "Install npm"
-npm install &>>${LOG}
-STAT $?
+Head "Extract Downloaded Archive"
+cd /home/ubuntu && rm -rf todo && unzip -o /tmp/todo.zip &>>$LOG && mv todo-main todo  && cd todo && npm install &>>$LOG
+Stat $?
 
-HEAD "Create service file"
-mv /root/shell-scripting/todo/todo/systemd.service /etc/systemd/system/todo.service
+Head "Update EndPoints in Service File"
+sed -i -e "s/redis-endpoint/redis.${DOMAIN}/" /home/ubuntu/todo/systemd.service
+Stat $?
 
-HEAD "Replace Ip with DNS Names"
-sed -i -e 's/Environment=REDIS_HOST=172.31.14.141/Environment=REDIS_HOST=redis.chandra1.online/g' /etc/systemd/system/todo.service
+HEAD "Move service file"
+mv /home/ubuntu/todo/systemd.service /etc/systemd/system/todo.service
+
 HEAD "Start Todo Service"
 systemctl daemon-reload && systemctl start todo && systemctl status todo
 STAT $?

@@ -14,21 +14,17 @@ HEAD "Installing Maven"
 apt install maven -y &>>${LOG}
 Stat $?
 
-HEAD "Cloning the repo"
-GIT_CLONE
-Stat $?
+DOWNLOAD_COMPONENT
 
-HEAD "cleaning the maven package"
-mvn clean package &>>${LOG}
+Head "Extract Downloaded Archive"
+cd /home/ubuntu && rm -rf users && unzip -o /tmp/users.zip &>>$LOG && mv users-main users  && cd users && mvn clean package &>>$LOG && mv target/users-api-0.0.1.jar users.jar
 Stat $?
 
 HEAD "Now move the user services"
-mv /root/shell-scripting/todo/users/systemd.service /etc/systemd/system/users.service
+mv /home/ubuntu/users/systemd.service /etc/systemd/system/users.service
 Stat $?
 
 
 HEAD "Restart the services"
-systemctl daemon-reload
-systemctl start users.service
-systemctl status users.service
+systemctl daemon-reload && systemctl start users && systemctl status users
 Stat $?

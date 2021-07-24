@@ -2,6 +2,8 @@
 
 source components/common.sh
 
+DOMAIN="chandra1.online"
+
 HEAD "Set hostname & update repo"
 REPEAT
 
@@ -15,48 +17,23 @@ HEAD "Install Node & Nginx"
 NPM
 STAT $?
 
-HEAD "switch to html directory"
-cd /var/www/html || exit
-STAT $?
+DOWNLOAD_COMPONENT
 
-#sudo find . -type d -name
-# shellcheck disable=SC2181
-#if [ $? -ne 0 ]; then
- #  mkdir
-  # STAT $?
-#fi
-HEAD "Delete vue directory"
-rm -rf vue
+Head "Extract Downloaded Archive"
+cd /var/www/html && unzip -o /tmp/frontend.zip &>>$LOG && rm -rf frontend.zip && rm -rf frontend && mv frontend-main frontend && cd frontend
+Stat $?
 
+Head "update frontend configuration"
+cd /var/www/html/frontend  && sudo npm install &>>$LOG && npm run build &>>$LOG
+Stat $?
 
-HEAD "make todo directory and switch"
-mkdir vue && cd vue
-STAT $?
+Head "Update Nginx Configuration"
+mv todo.conf /etc/nginx/sites-enabled/todo.conf
+for comp in login todo ; do
+  sed -i -e "/$comp/ s/localhost/${comp}.${DOMAIN}/" /etc/nginx/sites-enabled/todo.conf
+done
+Stat $?
 
-HEAD "Clone code from Github"
-GIT_CLONE
-STAT $?
-
-HEAD "Install Npm"
-npm install &>>${LOG}
-STAT $?
-
-HEAD "Run build"
-BUILD
-STAT $?
-
-HEAD "Change root path in nginx"
-sed -i -e 's+root /var/www/html+root /var/www/html/vue/frontend/dist' /etc/nginx/sites-available/default
-STAT $?
-
-HEAD "Providing Login & Todo DNS names"
-export AUTH_API_ADDRESS=http://login.chandra1.online:8080
-export TODOS_API_ADDRESS=http://todo.chandra1.online:8080
-HEAD "Restart Nginx"
+Head "ReStart Nginx service"
 systemctl restart nginx
-STAT $?
-
-HEAD "run npm start"
-npm start
-STAT $?
-
+Stat $?

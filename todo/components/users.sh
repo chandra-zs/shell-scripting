@@ -4,7 +4,7 @@ source components/common.sh
 
 HEAD "Set Hostname and Update repo"
 REPEAT
-Stat $?
+STAT $?
 
 HEAD "Install java-openjdk"
 apt-get install openjdk-8-jdk-headless -y &>>${LOG}
@@ -27,4 +27,4 @@ STAT $?
 
 HEAD "Restart the services"
 systemctl daemon-reload && systemctl start users && systemctl status users
-Stat $?
+STAT $?

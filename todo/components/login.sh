@@ -10,7 +10,7 @@ STAT $?
 
 HEAD "Install Go Lang"
 apt install golang -y &>>$LOG
-Stat $?
+STAT $?
 
 DOWNLOAD_COMPONENT
 

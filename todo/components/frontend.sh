@@ -19,21 +19,21 @@ STAT $?
 
 DOWNLOAD_COMPONENT
 
-Head "Extract Downloaded Archive"
+HEAD "Extract Downloaded Archive"
 cd /var/www/html && unzip -o /tmp/frontend.zip &>>$LOG && rm -rf frontend.zip && rm -rf frontend && mv frontend-main frontend && cd frontend
-Stat $?
+STAT $?
 
-Head "update frontend configuration"
+HEAD "update frontend configuration"
 cd /var/www/html/frontend  && sudo npm install &>>$LOG && npm run build &>>$LOG
-Stat $?
+STAT $?
 
-Head "Update Nginx Configuration"
+HEAD "Update Nginx Configuration"
 mv todo.conf /etc/nginx/sites-enabled/todo.conf
 for comp in login todo ; do
   sed -i -e "/$comp/ s/localhost/${comp}.${DOMAIN}/" /etc/nginx/sites-enabled/todo.conf
 done
-Stat $?
+STAT $?
 
-Head "ReStart Nginx service"
+HEAD "ReStart Nginx service"
 systemctl restart nginx
-Stat $?
+STAT $?

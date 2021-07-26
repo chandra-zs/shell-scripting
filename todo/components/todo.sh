@@ -14,13 +14,13 @@ STAT $?
 
 DOWNLOAD_COMPONENT
 
-Head "Extract Downloaded Archive"
+HEAD "Extract Downloaded Archive"
 cd /home/ubuntu && rm -rf todo && unzip -o /tmp/todo.zip &>>$LOG && mv todo-main todo  && cd todo && npm install &>>$LOG
-Stat $?
+STAT $?
 
-Head "Update EndPoints in Service File"
+HEAD "Update EndPoints in Service File"
 sed -i -e "s/redis-endpoint/redis.${DOMAIN}/" /home/ubuntu/todo/systemd.service
-Stat $?
+STAT $?
 
 HEAD "Move service file"
 mv /home/ubuntu/todo/systemd.service /etc/systemd/system/todo.service

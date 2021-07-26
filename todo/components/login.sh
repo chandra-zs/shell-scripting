@@ -14,13 +14,13 @@ Stat $?
 
 DOWNLOAD_COMPONENT
 
-Head "Extract Downloaded Archive"
+HEAD "Extract Downloaded Archive"
 cd /home/ubuntu && rm -rf login && unzip -o /tmp/login.zip &>>$LOG  && mv login-main login && cd /home/ubuntu/login && export GOPATH=/home/ubuntu/go && export GOBIN=$GOPATH/bin && go get &>>$LOG && go build
-Stat $?
+STAT $?
 
-Head "Update EndPoints in Service File"
+HEAD "Update EndPoints in Service File"
 sed -i -e "s/user_endpoint/users.${DOMAIN}/" /home/ubuntu/login/systemd.service
-Stat $?
+STAT $?
 
 HEAD "Move login service file"
 mv /home/ubuntu/login/systemd.service /etc/systemd/system/login.service

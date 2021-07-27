@@ -21,9 +21,9 @@ STAT(){
 }
 
 DOWNLOAD_COMPONENT() {
-  Head "Downloading ${COMPONENT} Component"
+  HEAD "Downloading ${COMPONENT} Component"
   curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/chandra-zs/${COMPONENT}/archive/main.zip"
-  Stat $?
+  STAT $?
 }
 
 NPM(){
